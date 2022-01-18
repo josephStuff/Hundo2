@@ -58,14 +58,16 @@ function displayNumbers(numbers) {
     let templateRows = "";
     for (let index = 0; index < numbers.length; index ++) {
 
-        if (index % 2 == 0) {
+        let number = numbers[index];
+
+        if (number % 2 == 0) {
             className = "even";
         }
         else {
             className = "odd";
         }
 
-        let row = `<tr><td class="${className}">${index}</td></tr>`;
+        let row = `<tr><td class="${className}">${number}</td></tr>`;
         templateRows += row;
 
     }
