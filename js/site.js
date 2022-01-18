@@ -56,6 +56,7 @@ function generateNumbers(start, end) {
 function displayNumbers(numbers) {
 
     let templateRows = "";
+    let className = "";
     for (let index = 0; index < numbers.length; index ++) {
 
         let number = numbers[index];
