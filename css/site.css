@@ -13,6 +13,24 @@ main>.container {
     min-height: 90vh;
 }
 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--jw-dark-color);
+}
+
+.odd {
+    font-weight: 400;
+}
+
+.even {
+    font-weight: bold;
+}
+
 /* --------------------------NAV BAR -------------------- */
 
 .navbarBG {
