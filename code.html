@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>APP NAME: A JS PROJECT</title>
+    <title>HUNDO:PROJECT</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +14,7 @@
    <!-- Convert this to an external style sheet -->
 
     <link href="css/site.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" />
     <link rel="stylesheet" href="/css/prism.css" />
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
@@ -25,8 +25,8 @@
 <nav class="navbar navbar-expand-md fixed-top navbarBG navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
-            <img src="img/MspectreMark.svg" height="24" class="d-inline-block align-text-top"/>
-            APP NAME
+            <img src="img/favicon-32x32.png" height="24" class="d-inline-block align-text-top"/>
+            HUNDO
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@
     </div>
 </nav>
 
-<!-- --------------------MAAIN SECTION -->
+<!-- --------------------MAAIN SECTION --------------------------->
 
     <main class="flex-shrink-0">
         <div class="container">
@@ -61,7 +61,10 @@
                     <pre class="line-numbers">
                         <code class="language-js">
                             
-<!-- Controller Function -->
+<!-------------------------- Controller Function ------------------------->
+
+// display message to the user.
+
 function getMessage() {
     let userMessage = document.getElementById("message").value;
     Swal.fire(
@@ -71,21 +74,86 @@ function getMessage() {
     );
     console.log(userMessage);
 }
+
+
+// Program Entry Point
+
+function getValues2() {
+    let startValue = document.getElementById("startValue").value;
+    let endValue = document.getElementById("endValue").value;
+
+    startValue = parseInt(startValue);
+    endValue = parseInt(endValue);
+
+    // check if they are in fact INTEGERS !
+
+    if(Number.isInteger(startValue) && Number.isInteger(endValue) ) {
+
+        // generate a list of NUMBERS
+        let numbers = generateNumbers(startValue, endValue);
+
+        // DISPLAY A LIST OF NUMBERS
+        displayNumbers(numbers);
+
+    } 
+    else {
+        Swal.fire({
+        icon: 'error',
+        title: 'Ooops...',
+        text: 'Only integers are allowed for Hundo'
+         })
+    }
+    
+}
+
+function generateNumbers(start, end) {
+
+    let numbers= [];
+    for (let i = start; i <= end; i++) {
+        numbers.push(i);
+    }
+
+    return numbers;
+
+}
+
+function displayNumbers(numbers) {
+
+    let templateRows = "";
+    let className = "";
+    
+    for (let index = 0; index < numbers.length; index ++) {
+
+        let number = numbers[index];
+
+        if (number % 2 == 0) {
+            className = "even";
+        }
+        else {
+            className = "odd";
+        }
+
+        let row = `<tr><td class="${className}">${number}</td></tr>`;
+        templateRows += row;
+
+    }
+
+    document.getElementById("results").innerHTML = templateRows;
+}}
                         </code>
                     </pre>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <p>I think this is placeholder text?  maybe?</p>
-                    <h3>getMessage</h3>
-                    <p>this is the user's message that is printed</p>
+                    <p>This is all of the Javascript Code to make this app</p>
+                    <h3>Made with PRISM JS</h3>
+                    <p>Let me know what you think.</p>
                 </div>
             </div>
-
         </div>
     </main>
 
 
-    <!-- -------------------FOOTER------- -->
+    <!-- --------------------------- FOOTER SECTION --------------------- -->
     <footer class="footer mt-auto py-3 sticky-footer">
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-3 gy-2">
@@ -95,7 +163,7 @@ function getMessage() {
                     </div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
-                   <span>Built Back Better, Joe W.</span> <!-- <img src="img/OrangeWhiteMark.svg" /> -->
+                   <span>Built Back Better, Joe W.</span>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">
@@ -121,7 +189,7 @@ function getMessage() {
     </footer>
 
 
-    <!-- Bootstrap JS -->
+    <!------------------------ Bootstrap JS ----------------------->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
